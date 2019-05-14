@@ -9,7 +9,7 @@
     <meta http-equiv="Content-Type" content="text/html; Charset=gb2312">
     <meta http-equiv="Content-Language" content="zh-CN">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
-    <title>ESIAUCCDCOIP</title>
+    <title>COIP: IAUCCD</title>
     <link rel="shortcut icon" href="" type="image/x-icon">
     <!--Layui-->
     <link href="./static/plug/layui/css/layui.css" rel="stylesheet"/>
@@ -194,14 +194,6 @@
                                 </tr>
                                 </tbody>
                             </table>
-                            <div class="layui-form-item">
-                                <div class="layui-input-block submit-btn" style="float:right;">
-                                    <button class="layui-btn" lay-submit="" lay-filter="" style="margin-right: 30px;">
-                                        运行计算
-                                    </button>
-                                    <button type="reset" class="layui-btn">重置</button>
-                                </div>
-                            </div>
                         </div>
                     </form>
                 </div>
@@ -209,12 +201,12 @@
                     <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
                         <legend>文件输入</legend>
                     </fieldset>
-                    <div style="float: right;margin-bottom: 20px">
-                        <div class="layui-inline">
-                            <button class="layui-btn">上传输入的文件</button>
-                        </div>
+                    <div style="float: right;margin-bottom: 20px;">
                         <div class="layui-inline">
                             <button class="layui-btn">下载文件输入模板</button>
+                        </div>
+                        <div class="layui-inline">
+                            <button class="layui-btn">上传输入的文件</button>
                         </div>
                     </div>
                 </div>
@@ -222,8 +214,19 @@
 
             <!--页面右边-->
             <div class="index-main-right">
+                <div style="margin: 100px 0 80px 0;">
+                    <div class="layui-form-item">
+                        <div class="layui-input-block submit-btn">
+                            <button class="layui-btn" lay-submit="" lay-filter="" style="margin-right: 30px;">
+                                运行计算
+                            </button>
+                            <button type="reset" class="layui-btn">重置</button>
+                        </div>
+                    </div>
+                </div>
+                <hr>
                 <div class="input-result-right">
-                    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+                    <fieldset class="layui-elem-field layui-field-title">
                         <legend>输出结果</legend>
                     </fieldset>
                     <div class="layui-form-item">
@@ -249,9 +252,9 @@
         </div>
     </div>
     <!-- 底部固定区域 -->
-    <div class="layui-footer" style="margin-left: -200px; background-color: orange">
+    <%--<div class="layui-footer" style="margin-left: -200px;">
 
-    </div>
+    </div>--%>
     <!--分享窗体-->
     <div class="index-share layui-hide">
         <div class="index-share-body">
