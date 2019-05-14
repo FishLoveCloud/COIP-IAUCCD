@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+	<!-- mybatis-config-spring.xml -->
+	<!-- 删除<environment>配置项，<mapper>配置项，只留下经常会变动的一些配置项 -->
+	<!-- 需要在spring的配置文件中配置mybatis全局配置文件的地址 -->
+	<settings>
+		<setting name="cacheEnabled" value="true"/>
+		<setting name="logImpl" value="STDOUT_LOGGING"/>
+		<setting name="lazyLoadingEnabled" value="true"/>
+		<setting name="aggressiveLazyLoading" value="false"/>
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+	</settings>
+
+</configuration>

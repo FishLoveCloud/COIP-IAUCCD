@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- status=debug 可以查看log4j的装配过程 -->
+<configuration status="off">
+    <!-- 文件路径 -->
+    <properties>
+        <property name="Log_Home">${web:rootDir}/logs</property>
+
+    </properties>
+
+    <!--先定义所有的appender-->
+    <appenders>
+        <!--输出控制台的配置-->
+        <Console name="Console" target="SYSTEM_OUT">
+            <!--输出日志的格式
+            %L:：输出代码中的行号。
+            %M：输出产生日志信息的方法名。-->
+            <!--"%highlight{%d{HH:mm:ss} %-5level %logger{36}.%M() @%L - %msg%n}{FATAL=Bright Red, ERROR=Bright Magenta, WARN=Bright Yellow, INFO=Bright Green, DEBUG=Bright Cyan, TRACE=Bright White}"-->
+            <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="%d{HH:mm:ss} %-5level %class{36}.%M @%L :-> %msg%xEx%n"/>
+        </Console>
+
+        <!--这个会打印出所有的信息，每次大小超过size，则这size大小的日志会自动存入按年份-月份建立的文件夹下面并进行压缩，作为存档-->
+        <RollingFile name="RollingFileInfo" fileName="${Log_Home}/info.${date:yyyy-MM-dd}.log" immediateFlush="true"
+                     filePattern="${Log_Home}/$${date:yyyy-MM}/info-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout charset="utf-8" pattern="%d{yyyy-MM-dd 'at' HH:mm:ss z} %-5level %class{36}.%M @%L :-> %msg%xEx%n"/>
+            <!--控制台只输出level及以上级别的信息（onMatch），其他的直接拒绝（onMismatch）-->
+            <filters>
+                <ThresholdFilter level="error" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+            </filters>
+            <Policies>
+                <TimeBasedTriggeringPolicy modulate="true" interval="1"/>
+                <SizeBasedTriggeringPolicy size="10MB"/>
+                <DefaultRolloverStrategy max="5"/>
+            </Policies>
+        </RollingFile>
+
+        <!-- 这个会打印出所有的信息，每次大小超过size，则这size大小的日志会自动存入按年份-月份建立的文件夹下面并进行压缩，作为存档 -->
+        <RollingFile name="RollingFileError" fileName="${Log_Home}/error.${date:yyyy-MM-dd}.log" immediateFlush="true"
+                     filePattern="${Log_Home}/$${date:yyyy-MM}/error-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout charset="utf-8" pattern="%d{yyyy-MM-dd 'at' HH:mm:ss z} %-5level %class{36}.%M @%L :-> %msg%xEx%n"/>
+            <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy modulate="true" interval="1"/>
+                <SizeBasedTriggeringPolicy size="10MB"/>
+                <DefaultRolloverStrategy max="5"/>
+            </Policies>
+        </RollingFile>
+
+    </appenders>
+    <!--trace<debug<info<warn<error<fatal-->
+    <!--然后定义logger，只有定义了logger并引入的appender，appender才会生效-->
+    <!--过滤掉spring和mybatis的一些无用的DEBUG信息-->
+    <!--log4j的additivity属性： additivity它是 子Logger 是否继承 父Logger 的 输出源（appender） 的标志位。
+    具体说，默认情况下子Logger会继承父Logger的appender，也就是说子Logger会在父Logger的appender里输出。
+    若是additivity设为false，则子Logger只会在自己的appender里输出，而不会在父Logger的appender里输出。！-->
+    <!--<logger name="org" level="INFO" additivity="false" ></logger>-->
+    <!--<logger name="org.springframework" level="INFO" additivity="false"></logger>-->
+    <!--<logger name="org.mybatis" level="INFO" additivity="false"></logger>-->
+    <loggers>
+        <logger name="org.springframework.core" level="info">
+        </logger>
+        <logger name="org.springframework.beans" level="info">
+        </logger>
+        <logger name="org.springframework.context" level="info">
+        </logger>
+        <logger name="org.springframework.web" level="info">
+        </logger>
+        <!--建立一个默认的root的logger-->
+        <root level="info">
+            <appender-ref ref="Console"/>
+            <appender-ref ref="RollingFileInfo"/>
+            <appender-ref ref="RollingFileError"/>
+        </root>
+    </loggers>
+</configuration>
