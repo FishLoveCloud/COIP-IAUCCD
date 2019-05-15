@@ -63,6 +63,6 @@
 	</bean>
 	
 	<!-- 扫描所有的mapper接口，让这些mapper接口能够自动注入 -->
-	<mybatis-spring:scan base-package="seu.dao"/>
+	<mybatis-spring:scan base-package="edu.seu.dao"/>
 	
 </beans>

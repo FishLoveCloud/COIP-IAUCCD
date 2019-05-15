@@ -18,9 +18,9 @@
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" 
 		p:prefix="/" p:suffix=".jsp"></bean>
 
-	<!--<mvc:interceptors>
+	<mvc:interceptors>
 		<mvc:interceptor>
-			&lt;!&ndash; 配置拦截器，拦截所有controller &ndash;&gt;
+			<!-- 配置拦截器，拦截所有controller -->
 			<mvc:mapping path="/**"/>
 			<bean class="edu.seu.interceptor.PassportInterceptor" ></bean>
 		</mvc:interceptor>
@@ -28,7 +28,7 @@
 			<mvc:mapping path="/**"/>
 			<bean class="edu.seu.interceptor.LoginRequiredInterceptor" ></bean>
 		</mvc:interceptor>
-	</mvc:interceptors>-->
+	</mvc:interceptors>
 	
 	<mvc:annotation-driven >
 	        <mvc:message-converters>
