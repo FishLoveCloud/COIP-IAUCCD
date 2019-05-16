@@ -24,14 +24,14 @@ public class LoginRequiredInterceptor implements HandlerInterceptor {
     /**
      * 需要登录之后访问的接口
      */
-    private static List<String> NEED_LOGIN_URIS = Arrays.asList("/updatePassword", "/docOperation");
+    private static List<String> NEED_LOGIN_URIS = Arrays.asList("/updatePassword");
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         if (hostHolder.getUser() == visitor) {
             for (String uri : NEED_LOGIN_URIS) {
                 if (request.getRequestURI().contains(uri)) {
-                    response.sendRedirect(request.getContextPath() + "/login?next=" + request.getRequestURI());
+                    response.sendRedirect(request.getContextPath() + "/login.jsp?next=" + request.getRequestURI());
                     return false;
                 }
             }

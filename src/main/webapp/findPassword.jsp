@@ -7,7 +7,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>COIP: IAUCCD - 登陆页面</title>
+    <title>COIP: IAUCCD - 找回密码页面</title>
     <meta name="renderer" content="webkit|ie-comp|ie-stand">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4,
@@ -26,13 +26,10 @@
 
 <body class="login-bg">
 <div class="login layui-anim layui-anim-up">
-    <div class="message">COIP: IAUCCD - 登录</div>
+    <div class="message">COIP: IAUCCD - 找回密码</div>
     <div id="darkbannerwrap"></div>
     <form class="layui-form" action="" method="post">
-        <input type="text" name="nameEmail" id="nameEmail" placeholder="请输入用户名/邮箱"
-               autocomplete="off" class="layui-input">
-        <hr class="hr15">
-        <input type="password" name="password" id="password" placeholder="请输入密码"
+        <input type="text" name="email" id="email" placeholder="请输入注册邮箱"
                autocomplete="off" class="layui-input">
         <hr class="hr15">
         <div class="layui-form-item">
@@ -46,22 +43,14 @@
             </label>
             <span id="code_span" style="color: green"></span>
         </div>
-        <div class="layui-form-item">
-            <div class="layui-input-inline">
-                <p style="text-align: left"><a href="${ctx}/register">没有账号？前往注册</a></p>
-            </div>
-            <label class="field-wrap" style="cursor:pointer;">
-                <p style="text-align: right"><a href="${ctx}/findPassword">忘记密码？</a></p>
-            </label>
-        </div>
-        <button style="width: 100%;" class="layui-btn layui-btn-radius" lay-filter="submit" lay-submit="">登录</button>
+        <hr class="hr15">
+        <button style="width: 100%;" id="find" class="layui-btn layui-btn-radius" lay-filter="submit" lay-submit="">找回密码</button>
     </form>
 </div>
 <!-- layui.js -->
 <script src="./static/plug/layui/layui.js"></script>
 <script src='./static/js/jquery/jquery.min.js'></script>
 <script>
-    var next = "${next}";
     $(function () {
         changeCaptcha();
     });
@@ -76,46 +65,41 @@
         var layer = layui.layer;
         var $ = layui.jquery;
 
-        function checkLoginInfo(nameEmail, password, codeCaptcha) {
-            if (nameEmail.trim() == "" || nameEmail.trim() == null) return "请输入用户名/邮箱！";
-            if (password == "" || password == null) return "请输入密码！";
-            if (codeCaptcha == "" || codeCaptcha == null) return "请输入验证码！";
+        function checkModifyInfo(email, codeCaptcha) {
+            if (email.trim() === "" || email.trim() == null) return "请输入注册邮箱！";
+            if (codeCaptcha === "" || codeCaptcha == null) return "请输入确认密码！";
             return "";
         }
 
         //监听提交
         form.on('submit(submit)', function(){
-            var nameEmail = $("#nameEmail").val();
-            var password = $("#password").val();
+            var email = $("#email").val();
             var codeCaptcha = $("#codeCaptcha").val();
-
-            var hint = checkLoginInfo(nameEmail, password, codeCaptcha);
-            if (hint != "") {
+            var hint = checkModifyInfo(email, codeCaptcha);
+            if (hint !== "") {
                 layer.msg(hint, {icon:2});
                 return false;
             }
 
             $.ajax({
                 type: 'post',
-                url: '${ctx}/reglogin/login',
-                data: {"nameEmail": nameEmail, "password": password, "codeCaptcha": codeCaptcha},
+                url: '${ctx}/reglogin/findPassword',
+                data: {"email": email, "codeCaptcha": codeCaptcha},
                 dataType: 'json',
                 success: function (data) {
                     if (data.code !== 200) {
                         layer.msg(data.msg,{icon: 2});
-                        changeCaptcha();
                         return false;
                     } else {
-                        if (next != null && next.trim() != "") {
-                            location = next;
-                        } else {
-                            location = "${ctx}/";
-                        }
+                        layer.msg(data.msg,{icon: 1});
+                        document.getElementById("find").disabled=true;
+                        setTimeout('document.getElementById("find").disabled=false;', 60000);
                     }
                 }
             });
             return false;
         });
+
     });
 
 </script>

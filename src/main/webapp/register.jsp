@@ -7,7 +7,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>COIPIB - 注册页面</title>
+    <title>COIP: IAUCCD - 注册页面</title>
     <meta name="renderer" content="webkit|ie-comp|ie-stand">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
@@ -38,7 +38,7 @@
 <body class="login-bg">
 
 <div class="login layui-anim layui-anim-up">
-    <div class="message">COIPIB - 注册</div>
+    <div class="message">COIP: IAUCCD - 注册</div>
     <div id="darkbannerwrap"></div>
     <form class="layui-form" action="" method="post">
         <input type="text" name="username" id="username" lay-verify="required|username" placeholder="请输入用户名"
