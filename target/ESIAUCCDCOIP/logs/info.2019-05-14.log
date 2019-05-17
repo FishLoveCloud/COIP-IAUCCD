@@ -1,0 +1,12 @@
+2019-05-14 at 16:02:30 CST INFO  com.mchange.v2.log.slf4j.Slf4jMLog$Slf4jMLogger$InfoLogger.log @212 :-> MLog clients using slf4j logging.
+2019-05-14 at 16:02:31 CST INFO  com.mchange.v2.log.slf4j.Slf4jMLog$Slf4jMLogger$InfoLogger.log @212 :-> Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+2019-05-14 at 18:46:36 CST INFO  com.mchange.v2.log.slf4j.Slf4jMLog$Slf4jMLogger$InfoLogger.log @212 :-> MLog clients using slf4j logging.
+2019-05-14 at 18:46:36 CST INFO  com.mchange.v2.log.slf4j.Slf4jMLog$Slf4jMLogger$InfoLogger.log @212 :-> Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+2019-05-14 at 20:26:14 CST INFO  com.mchange.v2.log.slf4j.Slf4jMLog$Slf4jMLogger$InfoLogger.log @212 :-> MLog clients using slf4j logging.
+2019-05-14 at 20:26:14 CST INFO  com.mchange.v2.log.slf4j.Slf4jMLog$Slf4jMLogger$InfoLogger.log @212 :-> Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+2019-05-14 at 20:33:14 CST INFO  com.mchange.v2.log.slf4j.Slf4jMLog$Slf4jMLogger$InfoLogger.log @212 :-> MLog clients using slf4j logging.
+2019-05-14 at 20:33:14 CST INFO  com.mchange.v2.log.slf4j.Slf4jMLog$Slf4jMLogger$InfoLogger.log @212 :-> Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+2019-05-14 at 20:46:19 CST INFO  com.mchange.v2.log.slf4j.Slf4jMLog$Slf4jMLogger$InfoLogger.log @212 :-> MLog clients using slf4j logging.
+2019-05-14 at 20:46:19 CST INFO  com.mchange.v2.log.slf4j.Slf4jMLog$Slf4jMLogger$InfoLogger.log @212 :-> Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+2019-05-14 at 20:56:59 CST INFO  com.mchange.v2.log.slf4j.Slf4jMLog$Slf4jMLogger$InfoLogger.log @212 :-> MLog clients using slf4j logging.
+2019-05-14 at 20:56:59 CST INFO  com.mchange.v2.log.slf4j.Slf4jMLog$Slf4jMLogger$InfoLogger.log @212 :-> Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]

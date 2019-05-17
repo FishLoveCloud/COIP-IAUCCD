@@ -4,11 +4,15 @@ import com.alibaba.fastjson.JSON;
 
 import java.util.Map;
 
+/**
+ * @Author: yxl
+ * @Date: 2019-05-15 13:53
+ */
 public class CommonResponse {
 
-    int code;
-    String msg;
-    Map<String, Object> data;
+    private int code;
+    private String msg;
+    private Map<String, Object> data;
 
     public int getCode() {
         return code;

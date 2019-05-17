@@ -13,19 +13,14 @@ public enum CodeEnum {
     FILE_UPLOAD_ERROR(401),
 
     /**
-     * 账户错误
+     * 用户错误
      */
     USER_ERROR(500),
 
     /**
-     * 文档相关错误
+     * 计算错误
      */
-    DOCUMENT_ERROR(600),
-
-    /**
-     * 归属相关错误
-     */
-    AFFILIATION_ERROR(700),
+    CALCULATE_ERROR(600),
 
     /**
      * 未知错误
@@ -33,7 +28,8 @@ public enum CodeEnum {
     UNKNOWN_ERROR(1000);
 
     int value;
-    CodeEnum(int value){
+
+    CodeEnum(int value) {
         this.value = value;
     }
 

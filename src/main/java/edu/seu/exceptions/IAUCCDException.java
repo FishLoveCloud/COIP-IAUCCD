@@ -2,9 +2,13 @@ package edu.seu.exceptions;
 
 import edu.seu.base.CodeEnum;
 
-public class IAUCCDException extends Exception{
+/**
+ * @Author: yxl
+ * @Date: 2019-05-15 13:57
+ */
+public class IAUCCDException extends Exception {
 
-    CodeEnum codeEnum;
+    private CodeEnum codeEnum;
 
     public CodeEnum getCodeEnum() {
         return codeEnum;

@@ -42,7 +42,6 @@
     <listener-class>org.apache.logging.log4j.web.Log4jServletContextListener</listener-class>
   </listener>
 
-
   <!-- springmvc配置文件 -->
   <servlet>
     <servlet-name>spring</servlet-name>
